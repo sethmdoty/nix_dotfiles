@@ -1,8 +1,7 @@
 { pkgs }:
 
 with pkgs; [
-  aspell
-  aspellDicts.en
+  (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
   exa
   fd
   fzf
@@ -49,4 +48,5 @@ with pkgs; [
   google-cloud-sdk
   ripgrep
   wget
+  zsh
 ]
