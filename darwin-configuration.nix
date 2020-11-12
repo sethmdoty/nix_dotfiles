@@ -11,7 +11,7 @@
 
     dock = { autohide = false; };
     trackpad.Clicking = true;
-    trackpad.TrackpadThreeFingerDrag = true;
+    trackpad.TrackpadThreeFingerDrag = false;
 
   };
 
