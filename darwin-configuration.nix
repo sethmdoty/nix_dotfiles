@@ -1,7 +1,10 @@
 # # darwin-rebuild switch -I darwin-config=$HOME/.nixpkgs/darwin-configuration.nix
 { config, pkgs, ... }:
+let
+  unstableTarball = fetchTarball
+    "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
 
-{
+in {
   imports = [ <home-manager/nix-darwin> ./modules/darwin ];
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -25,6 +28,9 @@
       allowUnfree = true;
       allowBroken = false;
       allowUnsupportedSystem = false;
+      packageOverrides = pkgs: {
+        unstable = import unstableTarball { config = config.nixpkgs.config; };
+      };
     };
   };
 

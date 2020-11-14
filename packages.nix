@@ -30,7 +30,7 @@ with pkgs; [
   pipenv
   packer
   pre-commit
-  terraform_0_13
+  unstable.terraform_0_13
   stow
   tflint
   tree
