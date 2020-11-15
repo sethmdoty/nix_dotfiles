@@ -3,6 +3,5 @@
 with pkgs;
 
 {
-  imports =
-    [ ./globalEmacsKeyBindings ./flake8Config ./gnupg.nix ./launchAgents ];
+  imports = [ ./globalEmacsKeyBindings ./flake8Config ./gnupg.nix ];
 }

@@ -4,7 +4,7 @@ with pkgs; [
   (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
   exa
   fd
-  fzf
+  multitail
   pinentry_mac
   tmux
   lorri
@@ -49,4 +49,11 @@ with pkgs; [
   ripgrep
   wget
   zsh
+  nodePackages.dockerfile-language-server-nodejs
+  nodePackages_latest.yaml-language-server
+  terraform-lsp
+  nodePackages.coc-stylelint
+  nodePackages.js-beautify
+  solargraph
+  firefox
 ]

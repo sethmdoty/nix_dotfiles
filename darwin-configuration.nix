@@ -9,6 +9,7 @@ in {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = import ./packages.nix { inherit pkgs; };
+  home-manager.useUserPackages = true;
 
   system.defaults = {
 
@@ -62,10 +63,7 @@ in {
   };
   users.users.sethdoty.shell = pkgs.zsh;
   home-manager.users.sethdoty = {
-    home.sessionVariables = {
-      PAGER = "less -R";
-      EDITOR = "emacsclient";
-    };
+    home.sessionVariables = { EDITOR = "emacsclient -nw"; };
     #the following works, but may be better as a home.file.<name>.source to not pollute the config
     #https://nix-community.github.io/home-manager/options.html#opt-home.file._name_.source
     home.file.".config/kitty/nord.conf".text = ''
@@ -155,7 +153,64 @@ in {
           use-agent = true;
         };
       };
+      fzf = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+      starship = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+      zsh = {
+        enable = true;
+        enableCompletion = true;
+        enableAutosuggestions = true;
+        defaultKeymap = "emacs";
+        history.extended = true;
+        initExtra = ''
+          ${builtins.readFile ./zsh/shell-aliases.zsh}
+        '';
+        sessionVariables = rec {
+          ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=9";
 
+          EDITOR = "emacsclient";
+          VISUAL = EDITOR;
+
+          GOPATH = "$HOME/go/bin";
+          PATH = "$HOME/.local/bin:$HOME/.emacs.d/bin$PATH";
+        };
+
+        plugins = [
+          {
+            name = "zsh-autosuggestions";
+            src = pkgs.fetchFromGitHub {
+              owner = "zsh-users";
+              repo = "zsh-autosuggestions";
+              rev = "v0.6.3";
+              sha256 = "1h8h2mz9wpjpymgl2p7pc146c1jgb3dggpvzwm9ln3in336wl95c";
+            };
+          }
+          {
+            name = "zsh-syntax-highlighting";
+            src = pkgs.fetchFromGitHub {
+              owner = "zsh-users";
+              repo = "zsh-syntax-highlighting";
+              rev = "be3882aeb054d01f6667facc31522e82f00b5e94";
+              sha256 = "0w8x5ilpwx90s2s2y56vbzq92ircmrf0l5x8hz4g1nx3qzawv6af";
+            };
+          }
+          {
+            name = "zsh-autopair";
+            src = pkgs.fetchFromGitHub {
+              owner = "hlissner";
+              repo = "zsh-autopair";
+              rev = "34a8bca0c18fcf3ab1561caef9790abffc1d3d49";
+              sha256 = "1h0vm2dgrmb8i2pvsgis3lshc5b0ad846836m62y8h3rdb3zmpy1";
+            };
+          }
+        ];
+
+      };
       kitty = {
         enable = true;
         font.package = pkgs.nerdfonts;
