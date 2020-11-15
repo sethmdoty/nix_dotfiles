@@ -120,7 +120,10 @@ in {
     programs = {
       home-manager = { enable = true; };
 
-      direnv = { enable = true; };
+      direnv = {
+        enable = true;
+        enableNixDirenvIntegration = true;
+      };
 
       emacs = {
         enable = true;
