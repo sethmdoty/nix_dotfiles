@@ -37,6 +37,7 @@
 (setq display-line-numbers-type t)
 
 ;;General improvements
+(setq with-editor-emacsclient-executable "/etc/profiles/per-user/sethdoty/bin/emacsclient")
 
 (setq-default
  delete-by-moving-to-trash t                      ; Delete files to trash
