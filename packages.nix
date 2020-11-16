@@ -4,6 +4,7 @@ with pkgs; [
   (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
   exa
   fd
+  zoxide
   multitail
   pinentry_mac
   tmux
@@ -19,8 +20,6 @@ with pkgs; [
   yamllint
   nixfmt
   bat
-  zsh-completions
-  zsh-syntax-highlighting
   multimarkdown
   black
   cmake
@@ -55,5 +54,4 @@ with pkgs; [
   nodePackages.coc-stylelint
   nodePackages.js-beautify
   solargraph
-  firefox
 ]
