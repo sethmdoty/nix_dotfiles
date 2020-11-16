@@ -1,5 +1,5 @@
 .PHONY: all
-all: dotfiles lsp ## Installs the bin files and the dotfiles.
+all: dotfiles ## Installs the bin files and the dotfiles.
 
 .PHONY: dotfiles
 dotfiles: ## Installs the dotfiles.
@@ -8,7 +8,7 @@ dotfiles: ## Installs the dotfiles.
 	ln -s Library/Mobile\ Documents/com\~apple\~CloudDocs/org ~/org
 
 install-nixpkgs:
-	curl -L https://nixos.org/nix/install | sh
+	sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon;
 
 install-home-manager:
 	nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
