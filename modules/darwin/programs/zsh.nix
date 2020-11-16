@@ -17,7 +17,7 @@
       VISUAL = EDITOR;
 
       GOPATH = "$HOME/go/bin";
-      PATH = "$HOME/.local/bin:$HOME/.emacs.d/bin$PATH";
+      PATH = "$HOME/.local/bin:$HOME/.emacs.d/bin:$PATH";
     };
 
     plugins = [
