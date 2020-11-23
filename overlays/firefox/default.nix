@@ -21,8 +21,8 @@ stdenv.mkDerivation rec {
 
   meta = with stdenv.lib; {
     description = "The Firefox web browser";
-    homepage = "https://www.mozilla.org/en-GB/firefox";
-    maintainers = [ maintainers.cmacrae ];
+    homepage = "https://www.mozilla.org/en-US/firefox";
+    maintainers = [ maintainers.sdoty ];
     platforms = platforms.darwin;
   };
 }
