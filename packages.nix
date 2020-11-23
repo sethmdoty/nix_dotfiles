@@ -6,6 +6,7 @@ with pkgs; [
   fd
   zoxide
   multitail
+  Firefox
   pinentry_mac
   tmux
   lorri

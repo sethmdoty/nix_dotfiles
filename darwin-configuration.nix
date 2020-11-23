@@ -24,6 +24,7 @@ in {
     keyboard.remapCapsLockToControl = true;
   };
 
+  nixpkgs.overlays = [ (import ./overlays) ];
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -34,7 +35,7 @@ in {
       };
     };
   };
-  
+
   nix.gc = {
     automatic = true;
     options = "--delete-older-than 30d";
