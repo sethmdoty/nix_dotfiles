@@ -14,8 +14,8 @@
     sessionVariables = rec {
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=9";
 
-      EDITOR = "emacsclient";
-      VISUAL = EDITOR;
+      EDITOR = "emacsclient -nw";
+      VISUAL = "emacsclient -nw";
 
       GOPATH = "$HOME/go/bin";
       PATH = "$HOME/.local/bin:$HOME/.emacs.d/bin:$PATH";
