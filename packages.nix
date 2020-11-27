@@ -10,7 +10,7 @@ with pkgs; [
   pinentry_mac
   tmux
   lorri
-  ansible-lint
+#  ansible-lint
   dive
   shellcheck
   terminal-notifier
@@ -30,11 +30,12 @@ with pkgs; [
   pipenv
   packer
   pre-commit
-  unstable.terraform_0_13
+  terraform
+#  unstable.terraform_0_13
   stow
   tflint
   tree
-  awscli2
+#  awscli2
   nodejs
   terraform-docs
   gawk
@@ -50,7 +51,7 @@ with pkgs; [
   wget
   zsh
   nodePackages.dockerfile-language-server-nodejs
-  nodePackages_latest.yaml-language-server
+#  nodePackages_latest.yaml-language-server
   nodePackages.bash-language-server
   terraform-lsp
   nodePackages.coc-stylelint
