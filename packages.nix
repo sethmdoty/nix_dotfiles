@@ -51,6 +51,7 @@ with pkgs; [
   zsh
   nodePackages.dockerfile-language-server-nodejs
   nodePackages_latest.yaml-language-server
+  nodePackages.bash-language-server
   terraform-lsp
   nodePackages.coc-stylelint
   nodePackages.js-beautify
