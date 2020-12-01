@@ -55,7 +55,7 @@
   #https://nix-community.github.io/home-manager/options.html#opt-home.file._name_.source
 
   home-manager.users.sethdoty.home.file.".config/kitty/nord.conf".text = ''
-          #: Color scheme
+    #: Color scheme
     foreground   #D8DEE9
     background   #2E3440
 

@@ -10,7 +10,7 @@ with pkgs; [
   pinentry_mac
   tmux
   lorri
-  ansible-lint
+  #  ansible-lint
   dive
   shellcheck
   terminal-notifier
@@ -30,7 +30,7 @@ with pkgs; [
   pipenv
   packer
   pre-commit
-  terraform_0_13
+  terraform
   stow
   tflint
   tree
