@@ -10,7 +10,7 @@ with pkgs; [
   pinentry_mac
   tmux
   lorri
-  #  ansible-lint
+  ansible-lint
   dive
   shellcheck
   terminal-notifier
@@ -50,7 +50,6 @@ with pkgs; [
   wget
   zsh
   nodePackages.dockerfile-language-server-nodejs
-  #nodePackages_latest.yaml-language-server
   nodePackages.bash-language-server
   terraform-lsp
   nodePackages.coc-stylelint
