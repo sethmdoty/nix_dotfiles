@@ -3,7 +3,7 @@
 {
   home-manager.users.sethdoty.programs.nushell = {
     enable = true;
-    package = pkgs.unstable.nushell;
+    package = pkgs.nushell;
 
     settings = {
       edit_mode = "emacs";
