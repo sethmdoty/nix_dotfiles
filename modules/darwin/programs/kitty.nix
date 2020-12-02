@@ -49,6 +49,7 @@
       "kitty_mod+5" = "goto_tab 5";
       "kitty_mod+shift+E" = "edit_config_file";
       "kitty_mod+shift+U" = "kitten unicode_input";
+      "ctrl+shift+h" = "show_scrollback";
     };
   };
   #the following works, but may be better as a home.file.<name>.source to not pollute the config
