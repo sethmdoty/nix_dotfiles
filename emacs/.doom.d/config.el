@@ -105,8 +105,8 @@
   :hook
   (after-init . org-roam-mode)
   :init
-  (setq org-roam-directory "/Users/sethdoty/org/roam/"
-        org-roam-db-location "/Users/sethdoty/org/roam/org-roam.db"
+  (setq org-roam-directory "~/Nextcloud/org/roam/"
+        org-roam-db-location "~/Nextcloud/org/roam/org-roam.db"
         org-roam-db-gc-threshold most-positive-fixnum
         org-roam-graph-exclude-matcher "private"
         org-roam-tag-sources '(prop last-directory)
@@ -124,7 +124,7 @@
   :custom
   (org-journal-date-prefix "#+title: ")
   (org-journal-enable-agenda-integration t)
-  (org-journal-dir (format "/Users/sethdoty/org/roam/" (format-time-string "%Y")))
+  (org-journal-dir (format "~/Nextcloud/org/roam/" (format-time-string "%Y")))
   (org-journal-file-format "%Y-%m-%d.org")
   (org-journal-date-format "%A, %d %B %Y"))
 ;;

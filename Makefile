@@ -5,7 +5,7 @@ all: dotfiles ## Installs the bin files and the dotfiles.
 dotfiles: ## Installs the dotfiles.
  ## add aliases for dotfiles
 	stow emacs
-	ln -s Library/Mobile\ Documents/com\~apple\~CloudDocs/org ~/org
+ ## ln -s Library/Mobile\ Documents/com\~apple\~CloudDocs/org ~/org
 
 install-nixpkgs:
 	sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon;
