@@ -19,6 +19,9 @@ with pkgs; [
   jq
   thefuck
   yamllint
+  dhall
+  dhall-json
+  dhall-lsp-server
   nixfmt
   bat
   multimarkdown
