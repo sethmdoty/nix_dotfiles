@@ -54,3 +54,5 @@
 (package! org-chef)
 
 (package! doct)
+
+(package! dhall-mode)
