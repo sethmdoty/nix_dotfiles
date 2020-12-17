@@ -16,5 +16,6 @@ with pkgs;
     ./programs/direnv.nix
     ./programs/zsh.nix
     ./programs/kitty.nix
+    ./programs/firefox.nix
   ];
 }
