@@ -62,7 +62,7 @@
   #
   users.users.sethdoty.shell = pkgs.zsh;
   home-manager.users.sethdoty = {
-    home.sessionVariables = { EDITOR = "emacsclient -nw"; };
+    home.sessionVariables = { EDITOR = "emacsclient"; };
     programs = { home-manager = { enable = true; }; };
   };
 
