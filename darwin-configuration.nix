@@ -68,8 +68,8 @@
     package = pkgs.yabai;
     enableScriptingAddition = true;
     config = {
-      window_border = "on";
-      window_border_width = 5;
+      window_border = "off";
+      window_border_width = 4;
       active_window_border_color = "0xff81a1c1";
       normal_window_border_color = "0xff3b4252";
       focus_follows_mouse = "off";
@@ -90,8 +90,7 @@
       bottom_padding = 10;
       left_padding = 10;
       right_padding = 10;
-      window_gap = 10;
-      external_bar = "all:26:0";
+      window_gap = 5;
     };
 
     extraConfig = ''
