@@ -29,6 +29,7 @@ with pkgs; [
   python38Packages.flake8
   python38Packages.cfn-lint
   python38Packages.pylint
+  graphviz
   pipenv
   packer
   pre-commit
