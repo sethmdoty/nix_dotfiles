@@ -59,6 +59,8 @@
   # programs.fish.enable = true;
   # Enable various package settings
   #
+  ## Enable Lorri
+  services.lorri.enable = true;
   ###########
   services.skhd.enable = true;
   services.skhd.skhdConfig = builtins.readFile ./conf.d/skhd.conf;

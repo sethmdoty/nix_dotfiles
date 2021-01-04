@@ -8,8 +8,6 @@ with pkgs; [
   multitail
   pinentry_mac
   tmux
-  lorri
-  ansible-lint
   dive
   shellcheck
   terminal-notifier
