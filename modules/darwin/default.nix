@@ -17,5 +17,6 @@ with pkgs;
     ./programs/zsh.nix
     ./programs/kitty.nix
     ./programs/firefox.nix
+    ./launchAgents/default.nix
   ];
 }

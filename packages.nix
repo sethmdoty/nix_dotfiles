@@ -8,6 +8,7 @@ with pkgs; [
   multitail
   pinentry_mac
   tmux
+  syncthing
   dive
   shellcheck
   terminal-notifier
