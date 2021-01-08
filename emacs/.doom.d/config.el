@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Seth Doty"
-      user-mail-address "sethmdoty@icloud.com")
+      user-mail-address "sethmdoty@posteo.net")
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -105,8 +105,8 @@
   :hook
   (after-init . org-roam-mode)
   :init
-  (setq org-roam-directory "~/Nextcloud/org/roam/"
-        org-roam-db-location "~/Nextcloud/org/roam/org-roam.db"
+  (setq org-roam-directory "~/Sync/org/roam/"
+        org-roam-db-location "~/Sync/org/roam/org-roam.db"
         org-roam-db-gc-threshold most-positive-fixnum
         org-roam-graph-exclude-matcher "private"
         org-roam-tag-sources '(prop last-directory)
@@ -124,7 +124,7 @@
   :custom
   (org-journal-date-prefix "#+title: ")
   (org-journal-enable-agenda-integration t)
-  (org-journal-dir (format "~/Nextcloud/org/roam/" (format-time-string "%Y")))
+  (org-journal-dir (format "~/Sync/org/roam/" (format-time-string "%Y")))
   (org-journal-file-format "%Y-%m-%d.org")
   (org-journal-date-format "%A, %d %B %Y"))
 ;;
@@ -306,11 +306,11 @@
   ;;
   ;; Set my org file paths
   ;; 
-  (setq +org-capture-recipies  "~/org/org-files/cookbook.org")
-  (setq +org-capture-todo-file "~/org/org-files/todo.org")
-  (setq +org-capture-central-project-notes-file "~/org/org-files/projects.org")
-  (setq +org-capture-central-project-todo-file "~/org/org-files/projects.org")
-  (setq +org-capture-links-file "~/org/org-files/links.org")
+  (setq +org-capture-recipies  "~/Sync/org/org-files/cookbook.org")
+  (setq +org-capture-todo-file "~/Sync/org/org-files/todo.org")
+  (setq +org-capture-central-project-notes-file "~/Sync/org/org-files/projects.org")
+  (setq +org-capture-central-project-todo-file "~/Sync/org/org-files/projects.org")
+  (setq +org-capture-links-file "~/Sync/org/org-files/links.org")
 
   (defun +doct-icon-declaration-to-icon (declaration)
     "Convert :icon declaration to icon"
