@@ -2,7 +2,11 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nix-darwin> ./modules/darwin ];
+  imports = [
+    <home-manager/nix-darwin>
+    ./modules/darwin
+    ./modules/common/packages.nix
+  ];
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = import ./packages.nix { inherit pkgs; };
