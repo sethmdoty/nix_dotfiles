@@ -3,5 +3,6 @@
 with pkgs;
 
 {
-  imports = [ ../common/programs ./packages.nix ../common/flake8Config ];
+  imports =
+    [ ../common/programs ./packages.nix ../common/flake8Config ./i3.nix ];
 }
