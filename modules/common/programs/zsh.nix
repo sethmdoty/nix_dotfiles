@@ -10,6 +10,7 @@
     initExtra = ''
       ${builtins.readFile ./zsh/shell-aliases.zsh}
       eval "$(zoxide init zsh)"
+      eval "$(thefuck --alias)"
     '';
     sessionVariables = rec {
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=9";
