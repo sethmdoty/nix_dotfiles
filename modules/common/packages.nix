@@ -27,11 +27,11 @@ with pkgs; {
     multimarkdown
     black
     cmake
-    python38Packages.pyflakes
-    python38Packages.isort
-    python38Packages.pytest
-    python38Packages.markdown
-    python38Packages.nose
+    python39Packages.pyflakes
+    python39Packages.isort
+    python39Packages.pytest
+    python39Packages.markdown
+    python39Packages.nose
     poetry
     graphviz
     pipenv
@@ -49,7 +49,7 @@ with pkgs; {
     autoconf
     poppler
     gnupg
-    python38
+    python39
     sqlite
     google-cloud-sdk
     gnumake
