@@ -19,7 +19,7 @@
       VISUAL = "emacsclient -nw";
 
       GOPATH = "$HOME/go/bin";
-      PATH = "$HOME/.local/bin:$HOME/.emacs.d/bin:$PATH";
+      PATH = "/opt/miniconda3/bin:$HOME/.local/bin:$HOME/.emacs.d/bin:$PATH";
     };
 
     plugins = [
