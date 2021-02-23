@@ -10,5 +10,6 @@ with pkgs;
     ./launchAgents/default.nix
     ../common/programs
     ../common/flake8Config
+    ./programs.nix
   ];
 }
