@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
 
 with pkgs; {
-  environment.systemPackages = [ pinentry_mac terminal-notifier ];
+  environment.systemPackages = [ terminal-notifier ];
 }
