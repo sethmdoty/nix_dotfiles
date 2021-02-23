@@ -8,6 +8,7 @@ with pkgs;
     ./fzf.nix
     ./git.nix
     ./gpg.nix
+    ./gnupg.nix
     ./kitty.nix
     ./nushell.nix
     ./starship.nix
