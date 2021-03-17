@@ -319,7 +319,9 @@
   :init
   (map! "<f1>" #'my/switch-to-agenda)
   (setq org-agenda-block-separator nil
-        org-agenda-start-with-log-mode t)
+        org-agenda-start-with-log-mode t
+        org-agenda-skip-scheduled-if-done t
+        org-agenda-skip-deadline-if-done t)
   (defun my/switch-to-agenda ()
     (interactive)
     (org-agenda nil " "))
