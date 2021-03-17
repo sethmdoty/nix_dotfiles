@@ -176,7 +176,7 @@
         (find-lisp-find-files my/org-agenda-directory "\.org$")))
 
 (setq org-capture-templates
-        `(("i" "Inbox" entry (file ,(expand-file-name "inbox.org" my/org-agenda-directory))
+        `(("i" "Inbox" entry (file ,(expand-file-name "todo.org" my/org-agenda-directory))
            ,(concat "* TODO %?\n"
                     "/Entered on/ %u"))))
 
