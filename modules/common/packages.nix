@@ -13,6 +13,7 @@ with pkgs; {
     tmux
     syncthing
     dive
+    proselint
     shellcheck
     go
     hadolint

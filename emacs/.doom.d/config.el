@@ -66,11 +66,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;;
-;;Python Stuff
-(after! lsp-python-ms
-  (set-lsp-priority! 'mspyls 1))
-(setq org-babel-python-command "python3")
-
+;;
 (after! dired
   (setq dired-listing-switches "-aBhl  --group-directories-first"
         dired-dwim-target t
@@ -84,6 +80,19 @@
       org-list-allow-alphabetical t
       org-export-in-backgroup t
       org-catch-invisible-edits 'smart)
+(after! org
+  (require 'org-habit)
+
+  (with-eval-after-load 'flycheck
+    (flycheck-add-mode 'proselint 'org-mode))
+
+  (setq org-src-window-setup 'current-window
+        org-return-follows-link t
+        org-babel-load-languages '((emacs-lisp . t)
+                                   (python . t)
+                                   (nix . t)
+                                   (R . t))
+        org-confirm-babel-evaluate nil))
 ;;Org task keywords
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "IN PROGRESS(I)" "|" "DONE(d)")
@@ -133,13 +142,6 @@
 (use-package! org-chef
   :after org
   :commands (org-chef-insert-recipe org-chef-get-recipe-from-url))
-;;
-;;Org cite
-;;
-;; (use-package! org-ref
-;;    :after org
-;;    :config
-;;    (setq org-ref-completion-library 'org-ref-ivy-cite))
 ;;
 ;;Org SuperAgenda
 ;;
