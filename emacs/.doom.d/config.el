@@ -20,6 +20,7 @@
       lsp-enable-symbol-highlighting nil)
 
 (setq with-editor-emacsclient-executable "/etc/profiles/per-user/sethdoty/bin/emacsclient")
+(setq projectile-project-search-path '("~/workspace/"))
 
 (setq org-directory "~/Sync/org/"
       org-ellipsis " ▼ "
