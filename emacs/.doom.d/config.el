@@ -402,16 +402,14 @@
   :config
   (setq org-roam-capture-templates
         '(("d" "default" plain (function org-roam--capture-get-point)
-           "%?"
+           "\n-tags::\n%?"
            :file-name "${slug}"
            :head "#+title: ${title}\n"
-           :immediate-finish t
            :unnarrowed t)
           ("p" "private" plain (function org-roam-capture--get-point)
-           "%?"
+           "\n-tags::\n%?"
            :file-name "private/${slug}"
            :head "#+title: ${title}\n"
-           :immediate-finish t
            :unnarrowed t)))
   (setq org-roam-dailies-directory "daily/")
   (setq org-roam-dailies-capture-templates
