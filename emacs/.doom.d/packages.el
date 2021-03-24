@@ -53,4 +53,3 @@
 (package! dired-narrow)
 (package! org-clock-convenience)
 (package! git-link)
-(package! yaml-mode)

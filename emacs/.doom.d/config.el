@@ -480,9 +480,6 @@
                       (face-list)))
     (pushnew! mixed-pitch-fixed-pitch-faces f)))
 
-(use-package! yaml-mode
-  :mode ("\\.yml\\'" . yaml-mode))
-
 (defun my/open-with (arg)
   "Open visited file in default external program.
 When in dired mode, open file under the cursor.
