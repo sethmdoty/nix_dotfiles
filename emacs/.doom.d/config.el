@@ -474,9 +474,6 @@
   (interactive)
   (insert (format-time-string "%c" (current-time))))
 
-(use-package! outshine
-  :commands (outshine-mode))
-
 (after! mixed-pitch
   (dolist (f (-filter (lambda (sym)
                         (s-prefix? "company-" (symbol-name sym)))
@@ -509,14 +506,6 @@ With a prefix ARG always prompt for command to use."
   :config
   (add-hook 'prog-mode-hook 'outline-minor-mode)
   (add-hook 'prog-mode-hook 'hs-minor-mode))
-
-(after! org-latex
-  (setq org-latex-pdf-process (list "latexmk -f -xelatex %f")))
-
-(map!
- [backtab] #'+fold/toggle
- [C-tab] #'+fold/open-all
- [C-iso-lefttab] #'+fold/close-all)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

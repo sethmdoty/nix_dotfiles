@@ -52,7 +52,6 @@
 (package! dhall-mode)
 (package! dired-narrow)
 (package! org-clock-convenience)
-(package! outshine)
 (package! org-download)
 (package! git-link)
 (package! yaml-mode)
