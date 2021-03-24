@@ -154,6 +154,8 @@
                                    (R . t))
         org-confirm-babel-evaluate nil
         org-catch-invisible-edits 'show
+        org-startup-folded 'overview
+        org-ellipsis " [...] "
         org-preview-latex-image-directory "/tmp/ltximg/"
         org-structure-template-alist '(("a" . "export ascii")
                                        ("c" . "center")
