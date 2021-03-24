@@ -22,8 +22,10 @@
 (setq with-editor-emacsclient-executable "/etc/profiles/per-user/sethdoty/bin/emacsclient")
 (setq projectile-project-search-path '("~/workspace/"))
 
+(after! ivy
+  (add-to-list 'ivy-re-builders-alist '(counsel-projectile-find-file . ivy--regex-plus)))
+
 (setq org-directory "~/Sync/org/"
-      org-ellipsis " ▼ "
       org-adapt-indentation nil
       org-habit-show-habits-only-for-today t)
 
@@ -423,9 +425,6 @@
 (after! company
   (map! "M-/" #'company-complete))
 
-(use-package! company-posframe
-  :hook (company-mode . company-posframe-mode))
-
 (after! (org-roam)
   (winner-mode +1)
   (map! :map winner-mode-map
@@ -530,11 +529,5 @@ With a prefix ARG always prompt for command to use."
  '(jdee-db-requested-breakpoint-face-colors (cons "#222228" "#74DFC4"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#222228" "#4E415C"))
  '(objed-cursor-color "#964C7B")
- '(pdf-view-midnight-colors (cons "#FFFFFF" "#27212E"))
- '(rustic-ansi-faces
-   ["#27212E" "#964C7B" "#74DFC4" "#FFE261" "#40B4C4" "#EB64B9" "#B4DCE7" "#FFFFFF"])
  '(safe-local-variable-values
-   '((eval require 'org-roam-dev)
-     (org-src-preserve-indentation)
-     (eval require 'ol-info))))
-
+   '((org-src-preserve-indentation))))

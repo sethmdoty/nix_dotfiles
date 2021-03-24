@@ -52,7 +52,6 @@
 (package! dhall-mode)
 (package! dired-narrow)
 (package! org-clock-convenience)
-(package! company-posframe)
 (package! outshine)
 (package! org-download)
 (package! git-link)
