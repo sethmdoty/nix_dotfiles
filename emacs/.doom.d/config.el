@@ -404,13 +404,13 @@
   :config
   (setq org-roam-capture-templates
         '(("d" "default" plain (function org-roam--capture-get-point)
-           "\n-tags::\n%?"
-           :file-name "${slug}"
+           ":tags::\n%?"
+           :file-name "%<%Y%m%d%H%M%S>-${slug}"
            :head "#+title: ${title}\n"
            :unnarrowed t)
           ("p" "private" plain (function org-roam-capture--get-point)
-           "\n-tags::\n%?"
-           :file-name "private/${slug}"
+           ":tags::\n%?"
+           :file-name "private/%<%Y%m%d%H%M%S>-${slug}"
            :head "#+title: ${title}\n"
            :unnarrowed t)))
   (setq org-roam-dailies-directory "daily/")
