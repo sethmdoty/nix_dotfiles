@@ -10,7 +10,7 @@ in {
     slack
     kitty
     nitrokey-app
-    ((emacsPackagesNgGen emacs).emacsWithPackages (epkgs: [ epkgs.vterm ]))
+    emacs
     clipmenu
     pavucontrol
     syncthing-tray
