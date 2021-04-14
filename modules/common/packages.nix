@@ -14,6 +14,7 @@ with pkgs; {
     syncthing
     dive
     proselint
+
     shellcheck
     go
     hadolint
@@ -62,7 +63,6 @@ with pkgs; {
     direnv
     nix-direnv
     killall
-    nushell
     ##Doom Requirements
     terraform
     gocode
