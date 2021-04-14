@@ -281,19 +281,13 @@
                            skipped))
                  (if (not org-agenda-persistent-marks) "" " (kept marked)")))))
 
-(defun my/org-inbox-capture ()
-  (interactive)
-  "Capture a task in agenda mode."
-  (org-capture nil "i"))
-
 (setq org-agenda-bulk-custom-functions `((,my/org-agenda-bulk-process-key my/org-agenda-process-inbox-item)))
 
 (map! :map org-agenda-mode-map
       "i" #'org-agenda-clock-in
       "I" #'my/clock-in-and-advance
       "r" #'my/org-process-inbox
-      "R" #'org-agenda-refile
-      "c" #'my/org-inbox-capture)
+      "R" #'org-agenda-refile)
 
 (defun my/advance-todo ()
   (org-todo 'right)
