@@ -173,7 +173,7 @@
 
        :app
        ;;calendar
-       ;;everywhere
+       everywhere
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
