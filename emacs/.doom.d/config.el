@@ -118,22 +118,6 @@
   :custom
   (git-link-use-commit t))
 
-(use-package! smartparens
-  :init
-  (map! :map smartparens-mode-map
-        "C-M-f" #'sp-forward-sexp
-        "C-M-b" #'sp-backward-sexp
-        "C-M-u" #'sp-backward-up-sexp
-        "C-M-d" #'sp-down-sexp
-        "C-M-p" #'sp-backward-down-sexp
-        "C-M-n" #'sp-up-sexp
-        "C-M-s" #'sp-splice-sexp
-        "C-)" #'sp-forward-slurp-sexp
-        "C-}" #'sp-forward-barf-sexp
-        "C-(" #'sp-backward-slurp-sexp
-        "C-M-)" #'sp-backward-slurp-sexp
-        "C-M-)" #'sp-backward-barf-sexp))
-
 (after! org
   (require 'org-habit)
 
@@ -212,81 +196,12 @@
 (setq org-refile-allow-creating-parent-nodes 'confirm
       org-refile-targets '((org-agenda-files . (:level . 1))))
 
-(defvar my/org-agenda-bulk-process-key ?f
-  "Default key for bulk processing inbox items.")
-
-(defun my/org-process-inbox ()
-  "Called in org-agenda-mode, processes all inbox items."
-  (interactive)
-  (org-agenda-bulk-mark-regexp "inbox:")
-  (my/bulk-process-entries))
-
 (defvar my/org-current-effort "1:00"
   "Current effort for agenda items.")
-
-(defun my/my-org-agenda-set-effort (effort)
-  "Set the effort property for the current headline."
-  (interactive
-   (list (read-string (format "Effort [%s]: " my/org-current-effort) nil nil my/org-current-effort)))
-  (setq my/org-current-effort effort)
-  (let* ((hdmarker (or (org-get-at-bol 'org-hd-marker)
-                       (org-agenda-error)))
-         (buffer (marker-buffer hdmarker))
-         (pos (marker-position hdmarker))
-         (inhibit-read-only t)
-         newhead)
-    (org-with-remote-undo buffer
-      (with-current-buffer buffer
-        (widen)
-        (goto-char pos)
-        (org-show-context 'agenda)
-        (funcall-interactively 'org-set-effort nil my/org-current-effort)
-        (end-of-line 1)
-        (setq newhead (org-get-heading)))
-      (org-agenda-change-all-lines newhead hdmarker))))
-
-(defun my/org-agenda-process-inbox-item ()
-  "Process a single item in the org-agenda."
-  (org-with-wide-buffer
-   (org-agenda-set-tags)
-   (org-agenda-priority)
-   (call-interactively 'my/my-org-agenda-set-effort)
-   (org-agenda-refile nil nil t)))
-
-(defun my/bulk-process-entries ()
-  (if (not (null org-agenda-bulk-marked-entries))
-      (let ((entries (reverse org-agenda-bulk-marked-entries))
-            (processed 0)
-            (skipped 0))
-        (dolist (e entries)
-          (let ((pos (text-property-any (point-min) (point-max) 'org-hd-marker e)))
-            (if (not pos)
-                (progn (message "Skipping removed entry at %s" e)
-                       (cl-incf skipped))
-              (goto-char pos)
-              (let (org-loop-over-headlines-in-active-region) (funcall 'my/org-agenda-process-inbox-item))
-              ;; `post-command-hook' is not run yet.  We make sure any
-              ;; pending log note is processed.
-              (when (or (memq 'org-add-log-note (default-value 'post-command-hook))
-                        (memq 'org-add-log-note post-command-hook))
-                (org-add-log-note))
-              (cl-incf processed))))
-        (org-agenda-redo)
-        (unless org-agenda-persistent-marks (org-agenda-bulk-unmark-all))
-        (message "Acted on %d entries%s%s"
-                 processed
-                 (if (= skipped 0)
-                     ""
-                   (format ", skipped %d (disappeared before their turn)"
-                           skipped))
-                 (if (not org-agenda-persistent-marks) "" " (kept marked)")))))
-
-(setq org-agenda-bulk-custom-functions `((,my/org-agenda-bulk-process-key my/org-agenda-process-inbox-item)))
 
 (map! :map org-agenda-mode-map
       "i" #'org-agenda-clock-in
       "I" #'my/clock-in-and-advance
-      "r" #'my/org-process-inbox
       "R" #'org-agenda-refile)
 
 (defun my/advance-todo ()
@@ -341,19 +256,6 @@
             (setq has-subtask t))))
       (and is-a-task has-subtask))))
 
-  (defun my/skip-projects ()
-  "Skip trees that are projects"
-  (save-restriction
-    (widen)
-    (let ((next-headline (save-excursion (or (outline-next-heading) (point-max)))))
-      (cond
-       ((org-is-habit-p)
-        next-headline)
-       ((my/is-project-p)
-        next-headline)
-       (t
-        nil)))))
-
   (setq org-columns-default-format "%40ITEM(Task) %Effort(EE){:} %CLOCKSUM(Time Spent) %SCHEDULED(Scheduled) %DEADLINE(Deadline)")
   (setq org-agenda-custom-commands `((" " "Agenda"
                                       ((agenda ""
@@ -362,20 +264,13 @@
                                        (todo "TODO"
                                              ((org-agenda-overriding-header "Inbox")
                                               (org-agenda-files '(,(expand-file-name "todo.org" my/org-agenda-directory)))))
-                                       (todo "TODO"
-                                             ((org-agenda-overriding-header "Emails")
-                                              (org-agenda-files '(,(expand-file-name "emails.org" my/org-agenda-directory)))))
                                        (todo "NEXT"
                                              ((org-agenda-overriding-header "In Progress")
                                               (org-agenda-files '(,(expand-file-name "projects.org" my/org-agenda-directory)))))
                                        (todo "TODO"
                                              ((org-agenda-overriding-header "Active Projects")
                                               (org-agenda-skip-function #'my/skip-projects)
-                                              (org-agenda-files '(,(expand-file-name "projects.org" my/org-agenda-directory)))))
-                                       (todo "TODO"
-                                             ((org-agenda-overriding-header "One-off Tasks")
-                                              (org-agenda-files '(,(expand-file-name "next.org" my/org-agenda-directory)))
-                                              (org-agenda-skip-function '(org-agenda-skip-entry-if 'deadline 'scheduled)))))))))
+                                              (org-agenda-files '(,(expand-file-name "projects.org" my/org-agenda-directory))))))))))
 
 (use-package! org-roam
   :commands (org-roam-insert org-roam-find-file org-roam-switch-to-buffer org-roam)
