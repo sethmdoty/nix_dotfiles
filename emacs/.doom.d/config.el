@@ -19,7 +19,10 @@
       lsp-ui-sideline-enable t
       lsp-enable-symbol-highlighting nil)
 
-(setq with-editor-emacsclient-executable "/etc/profiles/per-user/sethdoty/bin/emacsclient")
+(cond
+ (IS-MAC
+  (setq with-editor-emacsclient-executable "/etc/profiles/per-user/sethdoty/bin/emacsclient")))
+
 (setq projectile-project-search-path '("~/workspace/"))
 
 (after! ivy
