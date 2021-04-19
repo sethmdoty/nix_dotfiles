@@ -16,5 +16,6 @@ in {
     syncthing-tray
     zathura
     discord
+    conda
   ];
 }
