@@ -63,6 +63,7 @@ with pkgs; {
     direnv
     nix-direnv
     killall
+    coursier
     ##Doom Requirements
     terraform
     gocode
