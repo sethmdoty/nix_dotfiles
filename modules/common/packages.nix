@@ -64,6 +64,7 @@ with pkgs; {
     nix-direnv
     killall
     coursier
+    sbt
     ##Doom Requirements
     terraform
     gocode
