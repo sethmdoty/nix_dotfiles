@@ -8,6 +8,7 @@ in {
     firefox
     element-desktop
     slack
+    thefuck
     kitty
     nitrokey-app
     emacs

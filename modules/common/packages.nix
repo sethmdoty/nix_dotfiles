@@ -14,12 +14,10 @@ with pkgs; {
     syncthing
     dive
     proselint
-
     shellcheck
     go
     hadolint
     jq
-    thefuck
     yamllint
     dhall
     dhall-json

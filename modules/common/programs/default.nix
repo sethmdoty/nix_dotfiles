@@ -10,7 +10,7 @@ with pkgs;
     ./gpg.nix
     ./gnupg.nix
     ./kitty.nix
-    ./nushell.nix
+    #./nushell.nix
     ./starship.nix
     ./zsh.nix
   ];
