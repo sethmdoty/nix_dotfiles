@@ -53,3 +53,4 @@
 (package! dired-narrow)
 (package! org-clock-convenience)
 (package! git-link)
+(package! company-tabnine)

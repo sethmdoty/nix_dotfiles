@@ -15,7 +15,7 @@
       x-stretch-cursor t
       load-prefer-newer t
 
-      company-idle-delay nil
+      company-idle-delay 0.5
       lsp-ui-sideline-enable t
       lsp-enable-symbol-highlighting nil)
 
@@ -397,6 +397,29 @@ With a prefix ARG always prompt for command to use."
   :config
   (add-hook 'prog-mode-hook 'outline-minor-mode)
   (add-hook 'prog-mode-hook 'hs-minor-mode))
+
+(use-package! company-tabnine
+  :when (featurep! :completion company)
+  :config
+  ;; Number the candidates (use M-1, M-2 etc to select completions).
+  (setq company-show-numbers t)
+
+  ;; Use the tab-and-go frontend.
+  ;; Allows TAB to select and complete at the same time.
+  (company-tng-configure-default)
+  (setq company-frontends
+        '(company-tng-frontend
+          company-pseudo-tooltip-frontend
+          company-echo-metadata-frontend))
+  )
+(add-to-list 'company-backends #'company-tabnine)
+
+(setq +lsp-company-backends '(
+                              company-files
+                              company-yasnippet
+                              :separate
+                              company-tabnine
+                              ))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
