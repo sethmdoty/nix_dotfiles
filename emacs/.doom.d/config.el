@@ -15,7 +15,7 @@
       x-stretch-cursor t
       load-prefer-newer t
 
-      company-idle-delay 0.5
+      company-idle-delay 0
       lsp-ui-sideline-enable t
       lsp-enable-symbol-highlighting nil)
 

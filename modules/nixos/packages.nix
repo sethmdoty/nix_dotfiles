@@ -18,5 +18,6 @@ in {
     zathura
     discord
     conda
+    rustup
   ];
 }
