@@ -63,8 +63,9 @@ with pkgs; {
     killall
     coursier
     sbt
+    minikube
     ##Doom Requirements
-    terraform
+    terraform_0_14
     gocode
     gomodifytags
     gotests
