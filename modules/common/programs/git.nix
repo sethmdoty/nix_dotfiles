@@ -11,7 +11,13 @@
       core = { autocrlf = "input"; };
       pull = { rebase = false; };
     };
-    ignores =
-      [ ".DS_store" ".terraform/*" ".terragrunt-cache" "idea/*" ".direnv/*" ];
+    ignores = [
+      ".DS_store"
+      ".terraform/*"
+      ".terragrunt-cache"
+      "idea/*"
+      "*.iml"
+      ".direnv/*"
+    ];
   };
 }
