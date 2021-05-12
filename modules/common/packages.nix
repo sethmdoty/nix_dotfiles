@@ -64,6 +64,7 @@ with pkgs; {
     coursier
     sbt
     minikube
+    kubectl
     ##Doom Requirements
     terraform_0_14
     gocode
