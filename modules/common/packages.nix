@@ -65,6 +65,10 @@ with pkgs; {
     sbt
     minikube
     kubectl
+    #Haskell Stuff
+    stack
+    cabal-install
+    ghc
     ##Doom Requirements
     terraform_0_14
     gocode
