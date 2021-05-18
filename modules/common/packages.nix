@@ -69,6 +69,7 @@ with pkgs; {
     stack
     cabal-install
     ghc
+    spago
     ##Doom Requirements
     terraform_0_14
     gocode
