@@ -420,17 +420,3 @@ With a prefix ARG always prompt for command to use."
                               :separate
                               company-tabnine
                               ))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(fci-rule-color "#544863")
- '(git-link-use-commit t t)
- '(jdee-db-active-breakpoint-face-colors (cons "#222228" "#40B4C4"))
- '(jdee-db-requested-breakpoint-face-colors (cons "#222228" "#74DFC4"))
- '(jdee-db-spec-breakpoint-face-colors (cons "#222228" "#4E415C"))
- '(objed-cursor-color "#964C7B")
- '(safe-local-variable-values
-   '((org-src-preserve-indentation))))
