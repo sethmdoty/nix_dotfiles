@@ -81,6 +81,7 @@ with pkgs; {
     terraform-lsp
     nodePackages.coc-stylelint
     nodePackages.js-beautify
+    nodePackages.prettier
     solargraph
   ];
 }
