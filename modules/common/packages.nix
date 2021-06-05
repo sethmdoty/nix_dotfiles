@@ -33,6 +33,7 @@ with pkgs; {
     python38Packages.markdown
     python38Packages.nose
     poetry
+    watchman
     graphviz
     pipenv
     packer
